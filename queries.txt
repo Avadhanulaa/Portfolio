@@ -1,0 +1,82 @@
+mysql> use vishali;
+Database changed
+mysql> create table emp(eid int(5),ename varchar(15),dept varchar(10),phno int(10));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into emp values(1,'vishali','CSE',8247269737);
+ERROR 1264 (22003): Out of range value for column 'phno' at row 1
+mysql> insert into emp values(1,'vishali','CSE',824726973);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(2,'udai','CSE',82726973);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into emp values(3,'srihari','CSE',8226973);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(4,'akhil','IT',82326973);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into emp values(5,'rudransh','ECE',95326973);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select *from emp;
++------+----------+------+-----------+
+| eid  | ename    | dept | phno      |
++------+----------+------+-----------+
+|    1 | vishali  | CSE  | 824726973 |
+|    2 | udai     | CSE  |  82726973 |
+|    3 | srihari  | CSE  |   8226973 |
+|    4 | akhil    | IT   |  82326973 |
+|    5 | rudransh | ECE  |  95326973 |
++------+----------+------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> ALTER TABLE emp ADD Age int(5);
+Query OK, 5 rows affected (0.03 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> rename table emp to employee;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select *from employee;
++------+----------+------+-----------+------+
+| eid  | ename    | dept | phno      | Age  |
++------+----------+------+-----------+------+
+|    1 | vishali  | CSE  | 824726973 | NULL |
+|    2 | udai     | CSE  |  82726973 | NULL |
+|    3 | srihari  | CSE  |   8226973 | NULL |
+|    4 | akhil    | IT   |  82326973 | NULL |
+|    5 | rudransh | ECE  |  95326973 | NULL |
++------+----------+------+-----------+------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT User,Host FROM mysql.user;
++------+-----------+
+| User | Host      |
++------+-----------+
+| root | localhost |
++------+-----------+
+1 row in set (0.01 sec)
+
+mysql> CREATE USER 'vishali'@'localhost'IDENTIFIED BY '12345';
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> GRANT ALL PRIVILEGES ON *. * TO 'Raju'@'localhost';
+ERROR 1133 (42000): Can't find any matching row in the user table
+mysql> GRANT ALL PRIVILEGES ON *. * TO 'vishali'@'localhost';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SHOW GRANTS FOR 'vishali'@'localhost';
++-------------------------------------------------------------------------------------------------------------------------+
+| Grants for vishali@localhost                                                                                            |
++-------------------------------------------------------------------------------------------------------------------------+
+| GRANT ALL PRIVILEGES ON *.* TO 'vishali'@'localhost' IDENTIFIED BY PASSWORD '*00A51F3F48415C7D4E8908980D443C29C69B60C9' |
++-------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql>
+
+
+
+
